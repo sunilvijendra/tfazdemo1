@@ -1,12 +1,12 @@
 terraform {
   backend "azurerm" {
-    resource_group_name   = "terraformdemo"
-    storage_account_name  = "tfbackendaz2020"
-    container_name        = "tfstate"
-    key                   = "terraform.tfstate"
+    resource_group_name  = "terraformdemo"
+    storage_account_name = "tfbackendaz2020"
+    container_name       = "tfstate"
+    key                  = "terraform.tfstate"
   }
 
-required_providers {
+  required_providers {
     azure = {
       source  = "hashicorp/azurerm"
       version = "~> 2.33.0"
@@ -20,7 +20,7 @@ provider "azure" {
 }
 
 locals {
-    prefix = terraform.workspace
+  prefix = terraform.workspace
 }
 
 resource "azurerm_resource_group" "demorg" {
